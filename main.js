@@ -11,6 +11,10 @@ const removeAction = {
    type: 'REMOVE',
 };
 
+const removeTenAction = {
+   type: 'REMOVETEN'
+}
+
 const resetAction = {
    type: 'RESET'
 }
@@ -24,6 +28,8 @@ const counterReducer = (state = 0, action) => {
          return state - 1;
       case 'ADDTEN':
          return state + 10;
+      case 'REMOVETEN':
+         return state - 10;
       case 'RESET':
          return state = 0;
       default:
@@ -57,6 +63,10 @@ remove.addEventListener('click', () => {
 const addTen = document.getElementById('addMoreTen');
 addTen.addEventListener('click', () => {
    store.dispatch(addTenAction)
+})
+const removeTen = document.getElementById('removeTen');
+removeTen.addEventListener('click', () => {
+   store.dispatch(removeTenAction)
 })
 
 const restZero = document.getElementById('reset')
